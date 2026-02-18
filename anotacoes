@@ -1,0 +1,63 @@
+git-one$ git init   --> Inicia um repositorio git
+git-one$ ls -la	    -- Ver se foi criado o arquivo .git
+
+$ git clone https://github.com/joseivangeraldo/git-jorney.git  --> clonar repositorio do github
+
+$ git status  --> ver situação das atualizações do projeto
+
+STAGED:
+$ git add --all ou git add -A --> adiciona todas as atualizações no projeto
+$ git add .  --> só altera no diretorio atual, para alterar todo projeto, tem de estar no diretório raiz
+$ git add * --> only stages for new or modified files - NOT FOR DELETED
+$ git reset  --> cancela a ultima alteração do projeto
+$ git reset HEAD~ --> Desfasendo o ultimo commit
+$ git reset --hard --> rest hard restaura inclusive arquivos deletados
+$ git rm four.txt  --> remove arquivo , e já coloca, atualizado na lista de versionamento
+$ git rm four.txt --> se tiver alterações mas não for commitado, não faz a operação
+
+$ git rm -f four.txt --> Para forçar o delete sem o commit do arquivo
+$ git rm --cached four.txt --> remove o arquivo da sua staged area
+--force -->  Completely deletes the file
+--cached -->  Only removes it from staging
+
+$ git rm -r myFolder --> deleta diretórios modo recursivo
+
+$ git log  --> Historioc de todos commits
+$ git log --oneline --> versão mais resumida, somente com essenciais itens
+
+$ git branch  --> Lista os Branch que tem o seu projeto
+$ git branch development --> Cria novo Branch chamado development
+$ git checkout development --> Muda para o Branch development
+
+$ git merge main -m "Merge Main into development" --> mesclando main dentro de development
+$ git merge development -m "Merge development  into main" --> mesclando development dentro de main
+
+$ git branch staging  --> criou novo branch staging
+$ git commit -m "staging 44 at four.txt" --> comitou alteração de um arquivo em staging"
+$ git commit -m "Add 444 at four.txt"
+ 
+$ git merging staging --> Abaixo erro por conflito de arquivos
+Auto-merging four.txt CONFLICT (content): Merge conflict in four.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Abrir no proprio editor o arquivo emconflito e escolher que vai ficar.
+$ git add .
+$ git commit -m "Marge conflit solve"
+$ git merge development --> depois do conflito de criação são resolvidos é possivel mesclar
+
+LG@DESKTOP-CD3Q0EH MINGW64 ~/git-jorney (main)
+$ git log --oneline
+4bde2a8 (HEAD -> main, staging, development) Marge conflit solve      
+1f194c9 Add 444 at four.txt
+379c0bc staging 44
+193431a Merge Main into development
+1f11cef I changed four.txt and added 4
+d991502 I created three,txt and entered three there
+210adf5 I have some updated
+7b875f8 (origin/main, origin/HEAD) Create two.txt with initial content
+ce9f502 Create one.txt with initial content one
+
+$ git checkout 4bde2a8 --> ver estado antes
+
+$ git config --global user.email "ivan.geraldo@gmail.com"
+$ git config --global user.name "joseivangeraldo"
